@@ -1,10 +1,11 @@
 # main.py
 
-from fastapi import FastAPI, HTTPException, Depends
+from database import SessionLocal, Todo
+from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
-from database import SessionLocal, engine, Todo
 
 app = FastAPI()
+
 
 # Dependency
 def get_db():
@@ -14,12 +15,14 @@ def get_db():
     finally:
         db.close()
 
+
 @app.post("/todos/")
 def create_todo(todo: Todo, db: Session = Depends(get_db)):
     db.add(todo)
     db.commit()
     db.refresh(todo)
     return todo
+
 
 @app.put("/todos/{todo_id}")
 def update_todo(todo_id: int, updated_todo: Todo, db: Session = Depends(get_db)):
@@ -30,6 +33,7 @@ def update_todo(todo_id: int, updated_todo: Todo, db: Session = Depends(get_db))
         setattr(db_todo, key, value)
     db.commit()
     return db_todo
+
 
 @app.delete("/todos/{todo_id}")
 def delete_todo(todo_id: int, db: Session = Depends(get_db)):
