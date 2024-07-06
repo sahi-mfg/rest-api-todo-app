@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "rest-api-todo-app"
+version = "0.1.0"
+description = "Rest API To Do App"
+authors = ["Sahi Mohamed Francis Gonsangbeu <mohamedfrancissahi@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.0"
+SQLAlchemy = "^2.0.31"
+requests = "^2.32.3"
+streamlit = "^1.36.0"
+uvicorn = "^0.30.1"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.2.2"
+pytest-cov = "^5.0.0"
+pytest-mock = "^3.14.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.1"
+pre-commit = "^3.7.1"
+pdoc = "^14.5.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
