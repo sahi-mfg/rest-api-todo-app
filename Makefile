@@ -12,8 +12,5 @@ requirements-dev:
 	poetry export --without-hashes --only=dev \
 	--format=requirements.txt > requirements-dev.txt
 
-pylint_file:
-	pylint --generate-rcfile > .pylintrc
-
 test:
 	pytest --cov=app/ --cov-report term-missing
