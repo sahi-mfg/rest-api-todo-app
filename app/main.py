@@ -1,8 +1,9 @@
 # main.py
 
-from database import SessionLocal, Todo
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
+
+from .database import SessionLocal, Todo
 
 app = FastAPI()
 
