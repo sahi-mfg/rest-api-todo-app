@@ -13,4 +13,4 @@ requirements-dev:
 	--format=requirements.txt > requirements-dev.txt
 
 test:
-	pytest --cov=app/ --cov-report term-missing
+	pytest -v --cov=app --cov-report=term-missing
